@@ -1,0 +1,48 @@
+awesomewm,manejador de ventanas
+dependencias
+bluez,habilita conexiones por medio de bluetooth
+bluez-utils,dependencia de bluez
+colord,color deamon
+picom,compositor
+pipewire,audio
+pipewire-alsa,audio
+pipewire-audio,audio
+pipewire-pulse,audio
+pipewire-jack,audio
+pulsemixer,majeador de dispositivos de audio
+rofi,launcher de aplicaciones
+rofi-emoji,selector de emojis
+sddm-git,manejador de display para login
+cli
+bat,previsualizador con syntax highlight
+btop,monitor de recursos
+cava,visualizador de audio
+git,control de versiones
+lsd,mejor diseno que ls escrito en rust
+neofetch,herramienta para informacion del sistema
+noise-suppression-for-voice,mejora de audio en el microfono
+ripgrep,buscar por caracteres
+sxiv,visualizador de imagenes
+tmux,mi vida
+unzip,unzip archivos .zip
+xclip,mejor clipboard
+xorg-xrandr,campiar resolucion de pantalla
+xwallpaper,cambiar wallpaper desde la terminal
+arcolinux-logout,logout menu
+zip,compila archivos a .zip
+zsh,shell por defecto
+explorer
+brave-bin,navegador
+cups,soporte para imprimir
+dunst,notificaciones
+fonts
+noto-fonts,fuente por defecto para brave
+noto-fonts-emoji,fuente para aceptar emojis
+ttf-font-awesome
+ttf-jetbrains-mono,fuente de jetbrains
+temas
+catppuccin-gtk-theme,catppuccin tema para aplicaciones
+papirus-icon-theme,iconos para exploradores
+libs
+libnotify,libreria necesaria para dunst
+python2-wnck,libreria de python para logout

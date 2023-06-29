@@ -1,50 +1,53 @@
 awesomewm,manejador de ventanas
-dependencias
+alsa-utils,dependencia para ver audio
+bat,previsualizador con syntax highlight
 bluez,habilita conexiones por medio de bluetooth
 bluez-utils,dependencia de bluez
+brave-bin,navegador
+btop,monitor de recursos
+cava,visualizador de audio
+catppuccin-gtk-theme,catppuccin tema para aplicaciones
 colord,color deamon
-picom,compositor
+cups,soporte para imprimir
+dunst,notificaciones
+git,control de versiones
+libnotify,libreria necesaria para dunst
+lsd,mejor diseno que ls escrito en rust
+lxappearence,cambiar el diseno del sistema
+neofetch,herramienta para informacion del sistema
+neovim-git,editor
+noise-suppression-for-voice,mejora de audio en el microfono
+noto-fonts,fuente por defecto para brave
+noto-fonts-emoji,fuente para aceptar emojis
+maim,para screenshots
+papirus-icon-theme,iconos para exploradores
+pamixer,control de audio
+picom-pijulius-git,compositor
 pipewire,audio
 pipewire-alsa,audio
 pipewire-audio,audio
 pipewire-pulse,audio
 pipewire-jack,audio
 pulsemixer,majeador de dispositivos de audio
+ranger,explorador
+ripgrep,buscar por caracteres
 rofi,launcher de aplicaciones
 rofi-emoji,selector de emojis
 sddm-git,manejador de display para login
 slock,bloqueador de pantalla
-cli
-bat,previsualizador con syntax highlight
-btop,monitor de recursos
-cava,visualizador de audio
-git,control de versiones
-lsd,mejor diseno que ls escrito en rust
-neofetch,herramienta para informacion del sistema
-noise-suppression-for-voice,mejora de audio en el microfono
-ripgrep,buscar por caracteres
 sxiv,visualizador de imagenes
+thunar,explorador gui
 tmux,mi vida
-unzip,unzip archivos .zip
-wlogout,menu de logout
-xclip,mejor clipboard
-xorg-xrandr,campiar resolucion de pantalla
-xwallpaper,cambiar wallpaper desde la terminal
-arcolinux-logout,logout menu
-zip,compila archivos a .zip
-zsh,shell por defecto
-explorer
-brave-bin,navegador
-cups,soporte para imprimir
-dunst,notificaciones
-fonts
-noto-fonts,fuente por defecto para brave
-noto-fonts-emoji,fuente para aceptar emojis
 ttf-font-awesome
 ttf-jetbrains-mono,fuente de jetbrains
-temas
-catppuccin-gtk-theme,catppuccin tema para aplicaciones
-papirus-icon-theme,iconos para exploradores
-libs
-libnotify,libreria necesaria para dunst
-python2-wnck,libreria de python para logout
+ttf-firacode-nerd,fuente para terminal
+tumbler,preview de imagenes para thunar
+wezterm,terminal
+unzip,unzip archivos .zip
+wlogout,menu de logout
+xclip,copiar a clipboard
+xdg-user-dirs,directorios por defecto
+xorg-xrandr,campiar resolucion de pantalla
+xwallpaper,cambiar wallpaper desde la terminal
+zip,compila archivos a .zip
+zsh,shell por defecto

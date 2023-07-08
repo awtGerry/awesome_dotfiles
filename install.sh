@@ -28,8 +28,8 @@ function install_default_programs() {
 function install_aur_helper() {
     read -p "> Instalar yay o paru como aur_helper? [yay/paru] " aur_helper
     case $aur_helper in
-        [yay]* ) install_yay || error "No se pudo instalar yay" ;;
-        [paru]* ) install_paru || error "No se pudo instalar paru" ;;
+        [yay]* ) install_yay || error "No se pudo instalar yay" aur="yay";;
+        [paru]* ) install_paru || error "No se pudo instalar paru" aur="paru";;
         * ) exit "Opcion invalida";;
     esac
 }
@@ -65,7 +65,7 @@ function install_all_programs() {
     while IFS=, read -r name description; do
         n=$((n+1))
         echo "$description" | grep -q "^\".*\"$" && description="$(echo "$description" | sed -E "s/(^\"|\"$)//g")"
-        paru -S --noconfirm --needed "$name" || error "No se pudo instalar $name"
+        aur -Syy --noconfirm --needed "$name" || error "No se pudo instalar $name"
     done < /tmp/programs.csv ;
 }
 

@@ -6,6 +6,10 @@
 # Programas
 Todos los programas y dependencias en [programs.csv](./programs.csv)
 
+## NOTA
+Para instalaciones en artix linux es posible que se necesite activar repositorios de arch.
+Leer la [wiki de artix](https://wiki.artixlinux.org/Main/Repositories) para ver como activarlos.
+
 ## AUR Helper
 Para archlinux es necesario tener paru o yay a la mano.
 ```sh

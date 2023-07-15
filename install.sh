@@ -2,6 +2,7 @@
 
 dotfiles="https://github.com/awtGerry/dotfiles.git"
 programs="https://raw.githubusercontent.com/awtGerry/install-aw/master/programs.csv"
+aur="paru"
 
 echo -e "Instalador para sistemas basados en Arch linux"
 echo -e "--- Para que la instalacion sea correcta el programa necesita permisos root"
@@ -20,7 +21,8 @@ function error() {
 
 function install_default_programs() {
     for app in base-devel curl git gcc; do
-        pacman -Sq --noconfirm --needed $app || error "No se pudo instalar $app"
+        echo -e "Instalando $app" || error "No se pudo instalar $app"
+        pacman -S --noconfirm --needed $app || error "No se pudo instalar $app"
     done
 }
 
@@ -63,12 +65,12 @@ function install_dotfiles() {
 function install_all_programs() {
     ([ -f "$programs" ] && cp "$programs" /tmp/programs.csv) || curl -Ls "$programs" | sed '/^#/d' > /tmp/programs.csv
     total=$(wc -l < /tmp/programs.csv)
-    pacman -Syy
+    pacman -Syy --noprogressbar
     while IFS=, read -r name description; do
         n=$((n+1))
         # echo "$description" | grep -q "^\".*\"$" && description="$(echo "$description" | sed -E "s/(^\"|\"$)//g")"
         echo -e "Instalando $name ($n/$total): $description"
-        "$aur" -S --noconfirm --needed --quiet "$name" || error "No se pudo instalar $name"
+        sudo -u "$username" "$aur" -S --noconfirm --needed --quiet "$name" || error "No se pudo instalar $name"
     done < /tmp/programs.csv ;
 }
 

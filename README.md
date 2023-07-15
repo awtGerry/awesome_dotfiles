@@ -4,20 +4,17 @@
 </div>
 
 # Programas
-Todos los programas y dependencias en [programs.csv](./programs.csv)
+Todos los programas y dependencias en [programs.csv](./programs.csv).
 
-## NOTA
-Para instalaciones en artix linux es posible que se necesite activar repositorios de arch.
+## NOTAS
+- Se tiene que tener en cuenta que la instalacion borrara toda posible configuracion que exista en `~/.config` y tenga
+conflicto con los programas que se usan en mis [dotfiles](https://github.com/awtgerry/dotfiles).
+Si quiere mantener la configuracion del usuario sugiero hacer un backup o cambiar simplemente el nombre y luego regresar
+para sobrescribirlo.
+
+- Para instalaciones en artix linux es posible que se necesite activar repositorios de arch.
 Leer la [wiki de artix](https://wiki.artixlinux.org/Main/Repositories) para ver como activarlos.
 
-## AUR Helper
-Para archlinux es necesario tener paru o yay a la mano.
-```sh
-sudo pacman -S --needed base-devel
-git clone https://aur.archlinux.org/paru.git
-cd paru
-makepkg -si
-```
 ## NVIDIA drivers
 Para nuevas tarjetas (o no tan viejas) solo es instalar:
 ```sh

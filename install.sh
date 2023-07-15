@@ -22,7 +22,7 @@ function error() {
 function install_default_programs() {
     for app in base-devel curl git gcc; do
         echo -e "Instalando $app" || error "No se pudo instalar $app"
-        pacman -S --noconfirm --needed $app || error "No se pudo instalar $app"
+        pacman -S --noconfirm --needed $app >/dev/null 2>&1 || error "No se pudo instalar $app"
     done
 }
 
@@ -38,19 +38,21 @@ function install_aur_helper() {
 }
 
 function install_yay() {
-    sudo -u "$username" git clone https://aur.archlinux.org/yay.git
+    echo -e "Cloneando repositorio..."
+    sudo -u "$username" git clone -q https://aur.archlinux.org/yay.git
     cd yay
     sudo -u "$username" makepkg -si
     cd .. && rm -rf yay
-    echo -e "yay fue instalado correctamente"
+    echo -e "yay fue instalado correctamente!"
 }
 
 function install_paru() {
-    sudo -u "$username" git clone https://aur.archlinux.org/paru.git
+    echo -e "Cloneando repositorio..."
+    sudo -u "$username" git clone -q https://aur.archlinux.org/paru.git
     cd paru
     sudo -u "$username" makepkg -si
     cd .. && rm -rf paru
-    echo -e "paru fue instalado correctamente"
+    echo -e "paru fue instalado correctamente!"
 }
 
 function install_dotfiles() {
@@ -58,30 +60,31 @@ function install_dotfiles() {
     echo -e "Clonando dotfiles..."
     sudo -u "$username" git clone -q --recursive "$dotfiles"
     cd dotfiles
-    mv .config .local /home/"$username"/Downloads # TODO: No sobreescribir archivos
+    sudo -u "$username" cp -rf .config .local /home/"$username"/
     echo -e "Configuracion de dotfiles instalada correctamente"
 }
 
 function install_all_programs() {
     ([ -f "$programs" ] && cp "$programs" /tmp/programs.csv) || curl -Ls "$programs" | sed '/^#/d' > /tmp/programs.csv
     total=$(wc -l < /tmp/programs.csv)
-    pacman -Syy --noprogressbar
+    echo -e "Actualizando repositorios..."
+    pacman -Syy >/dev/null 2>&1 || error "Checar conexion a internet"
+    echo -e ""
     while IFS=, read -r name description; do
         n=$((n+1))
-        # echo "$description" | grep -q "^\".*\"$" && description="$(echo "$description" | sed -E "s/(^\"|\"$)//g")"
         echo -e "Instalando $name ($n/$total): $description"
-        sudo -u "$username" "$aur" -S --noconfirm --needed --quiet "$name" || error "No se pudo instalar $name"
+        sudo -u "$username" "$aur" -S --noconfirm --needed "$name" >/dev/null 2>&1 || error "No se pudo instalar $name"
     done < /tmp/programs.csv ;
 }
 
 function clean_home() {
     cd /home/$username
-    rm -rf .git .gitignore .gitmodules README.md screenshot.png .config/nvim/.git .config/nvim/.gitignore
+    rm -rf dotfiles .config/nvim/.git .config/nvim/.gitignore
 }
 
 install_default_programs || error "Error al instalar, checar conexion a internet?"
 # install_aur_helper || error "No se pudo instalar el aur_helper"
-install_dotfiles || error "No se pudo instalar los dotfiles"
+# install_dotfiles || error "No se pudo instalar los dotfiles"
 install_all_programs || error "Ha ocurrido un error instalando los programas"
 # clean_home || error "Error al limpiar /home/$username"
 

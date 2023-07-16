@@ -6,16 +6,16 @@ bluez-utils,dependencia de bluez
 brave-bin,navegador
 btop,monitor de recursos
 cava,visualizador de audio
-catppuccin-gtk-theme,tema para gtk
+catppuccin-gtk-theme-mocha,tema para gtk
 colord,color deamon
 cups,soporte para imprimir
 dunst,notificaciones
 kora-icon-theme,iconos para aplicaciones y sistema
 libnotify,libreria necesaria para dunst
 lsd,mejor diseno que ls escrito en rust
-lxappearence,cambiar el diseno del sistema
+lxappearance,cambiar el diseno del sistema
 neofetch,herramienta para informacion del sistema
-neovim,editor
+neovim-git,editor
 noise-suppression-for-voice,mejora de audio en el microfono
 noto-fonts,fuente por defecto para brave
 noto-fonts-emoji,fuente para aceptar emojis

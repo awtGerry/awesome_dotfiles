@@ -3,8 +3,22 @@
     <img title="screenshot" alt="system" src="./screenshot.png">
 </div>
 
+# Instalacion
+### Curl
+```sh
+curl -LO https://raw.githubusercontent.com/awtGerry/install-aw/master/install.sh
+chmod +x install.sh
+sudo ./install.sh
+```
+### Git
+Requiere tener git instalado
+```sh
+git clone https://github.com/awtGerry/install-aw.git
+sudo ./install.sh
+```
+
 # Programas
-Todos los programas y dependencias en [programs.csv](./programs.csv).
+Todos los programas y dependencias se encuentran listados en [programs.csv](./programs.csv).
 
 ## NOTAS
 - Se tiene que tener en cuenta que la instalacion borrara toda posible configuracion que exista en `~/.config` y tenga
@@ -16,13 +30,15 @@ para sobrescribirlo.
 Leer la [wiki de artix](https://wiki.artixlinux.org/Main/Repositories) para ver como activarlos.
 
 ## NVIDIA drivers
-Para nuevas tarjetas (o no tan viejas) solo es instalar:
+El instalador no instalara los drivers para tarjetas de video.
+Si se tiene una tarjeta de video Nvidia se necesitan instalar drivers "manualmente"
+si son nuevas tarjetas (o no tan viejas) solo es ejecutar en una terminal el comando:
 ```sh
 sudo pacman -S nvidia nvidia-utils opencl-nvidia
 ```
 En algunos casos esto no sirve ya que instala `x` driver, entonces
-mejor buscar los drivers de tu tarjeta en [la pagina de nvidia](https://www.nvidia.com/download/index.aspx).
-En mi caso los drivers son los 470
+es necesario buscar los drivers de tu tarjeta en [la pagina oficial de nvidia](https://www.nvidia.com/download/index.aspx).
+En mi caso los drivers son los 470 se ejecuta este comando:
 ```sh
 paru -S nvidia-470xx-dkms nvidia-470xx-utils opencl-nvidia-470xx
 ```
@@ -33,11 +49,4 @@ Finalmente agregar las lineas siguientes a `/usr/share/sddm/scripts/Xsetup`
 ```sh
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
-```
-
-## Neovim
-### Packer
-```sh
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
